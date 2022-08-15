@@ -114,6 +114,36 @@ namespace Engine.Tests
             Assert.IsTrue(game.Winner);
         }
 
+        [Test]        
+        public void Play_GivenValidTurnAndExistingValuesInRow_PlayersDraws()
+        {
+            // Arrange
+            var board = Substitute.For<IBoard>();
+            board.GetValue(0, 0).Returns(true);
+            board.GetValue(0, 1).Returns(true);
+            board.GetValue(0, 2).Returns(false);
+
+            board.GetValue(1, 0).Returns(false);
+            board.GetValue(1, 1).Returns(true);
+            board.GetValue(1, 2).Returns(true);
+
+            board.GetValue(2, 0).Returns(true);
+            board.GetValue(2, 1).Returns(false);
+            
+            board.GetValue(2, 2).Returns(null, false);
+            board.IsFull.Returns(true);
+            var game = new TicTacToe();
+            game.Board = board;
+
+            // Act
+            game.Start();
+            game.Play(2, 2, false);
+
+            // Assert
+            Assert.IsNull(game.Winner);
+            Assert.IsTrue(game.IsDraw);
+        }
+
         [Test]
         [TestCase(0, true)]
         [TestCase(1, true)]

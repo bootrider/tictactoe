@@ -23,6 +23,25 @@
             }
         }
 
+        public bool IsFull
+        {
+            get
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        if (this.content[i, j] is null)
+                        {
+                            return false;
+                        }
+                    }
+                }
+
+                return true;
+            }
+        }
+
         public bool? GetValue(int x, int y)
         {
             return this.content[x, y];

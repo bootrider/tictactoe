@@ -8,6 +8,8 @@
 
         public bool? Winner { get; set; }
 
+        public bool IsDraw { get; private set; }
+
         public void Start()
         {
             this.Board ??= new Board();
@@ -54,6 +56,8 @@
             {
                 this.Winner = player;
             }
+
+            this.IsDraw = this.Board.IsFull;
         }
 
         private bool DiagonalIsEqual(bool counterwise = false)

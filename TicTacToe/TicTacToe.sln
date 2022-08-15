@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Engine\Engine.csproj", "{0B75D0B3-4E73-4A2D-BDF8-EAD5F9CC697E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Engine", "Engine\Engine.csproj", "{0B75D0B3-4E73-4A2D-BDF8-EAD5F9CC697E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine.Tests", "Engine.Tests\Engine.Tests.csproj", "{775D79E3-346C-46F1-8DAC-2727B493A9AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Engine.Tests", "Engine.Tests\Engine.Tests.csproj", "{775D79E3-346C-46F1-8DAC-2727B493A9AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosoleTTT", "CosoleTTT\CosoleTTT.csproj", "{EE25AB1E-C191-4D19-8F86-428FAA2DD6CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{775D79E3-346C-46F1-8DAC-2727B493A9AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{775D79E3-346C-46F1-8DAC-2727B493A9AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{775D79E3-346C-46F1-8DAC-2727B493A9AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE25AB1E-C191-4D19-8F86-428FAA2DD6CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE25AB1E-C191-4D19-8F86-428FAA2DD6CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE25AB1E-C191-4D19-8F86-428FAA2DD6CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE25AB1E-C191-4D19-8F86-428FAA2DD6CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
