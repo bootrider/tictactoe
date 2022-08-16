@@ -2,7 +2,7 @@
 {
     public class TicTacToe
     {
-        public IBoard Board { get; set; }
+        public IBoard? Board { get; set; }
 
         public bool? NextPlayer { get; set; }
 
@@ -27,7 +27,7 @@
                 throw new ArgumentException("A player cannot play twice");
             }
 
-            if (this.Board.GetValue(x, y) is not null)
+            if (this.Board?.GetValue(x, y) is not null)
             {
                 throw new ArgumentException("Invalid movement, cell already taken");
             }

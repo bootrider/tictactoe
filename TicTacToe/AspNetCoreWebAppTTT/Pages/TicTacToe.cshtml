@@ -1,0 +1,86 @@
+﻿@page
+@model AspNetCoreWebAppTTT.Pages.TicTacToeModel
+@{
+    ViewData["Title"] = "Tic Tac Toe 1.0";
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Here you can play Tic Tac Toe</p>
+
+    @if (AspNetCoreWebAppTTT.Pages.TicTacToeModel.Game.Board is null)
+    {
+        <form asp-page="Initiate game" method="post">
+            <div class="box-shadow">
+                <button type="submit" name="start">Start Game</button>
+            </div>
+        </form>
+    }
+    else
+    {
+        <div class="row">
+            <div class="column_left">
+
+                @if (AspNetCoreWebAppTTT.Pages.TicTacToeModel.Game.Winner is not null)
+                {
+                    var winner = AspNetCoreWebAppTTT.Pages.TicTacToeModel.Game.Winner;
+                    var playerMsg = winner is not null ? (winner.Value ? "X" : "O") : " ";
+                    <div class="result">
+                        <h2>🎉 We Have A Winner 🎉</h2>
+                        <h2>@playerMsg</h2>
+                        <span class="prize">💰💰💰</span>
+                    </div>
+                    <form asp-page="Initiate game" method="post">
+                        <div class="box-shadow">
+                            <button type="submit" name="start">Start Game</button>
+                        </div>
+                    </form>
+
+                }
+                else if (AspNetCoreWebAppTTT.Pages.TicTacToeModel.Game.IsDraw)
+                {
+                    <div class="result">
+                        <h2>🎉 We Have Two Winners 🎉</h2>
+                        <h2>It is a Draw</h2>
+                        <span class="prize">💰💰💰</span>
+                    </div>
+                    <form asp-page="Initiate game" method="post">
+                        <div class="box-shadow">
+                            <button type="submit" name="start">Start Game</button>
+                        </div>
+                    </form>
+                }
+                else
+                {
+                    var player = Model.Player;
+                    var playerMsg = player is not null ? (player.Value ? "X" : "O") : " ";
+                    <h1> Playing @playerMsg </h1>
+
+                }
+
+            </div>
+
+            <div class="column_main">
+                <form asp-page="TicTacToe" method="post">
+                    <div class="parent">
+                        @for (int i = 1; i < 10; i++)
+                        {
+                            <div class="box @($"box{i}")">
+                                <button type="submit"
+                                name="position"
+                                value="@(i)">
+                                    @{
+                                        var pos = @Model.TransformPosition(i);
+                                        var value = AspNetCoreWebAppTTT.Pages.TicTacToeModel.Game.Board.GetValue(pos.X, pos.Y);
+                                        var msg = value is not null ? (value.Value ? "X" : "O") : " ";
+                                    }
+                                    @(msg)
+                                </button>
+                            </div>
+                        }
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+
+</div>
